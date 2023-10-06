@@ -32,7 +32,7 @@ void	ft_print_c(va_list *args, t_flags *flag)
 {
 	int		amount;
 	char	c;
-	
+
 	amount = flag->ast == 1 ? va_arg(*args, int) : flag->dash;
 	c = va_arg(*args, int);
 	while (flag->dash == 0 && amount-- > 1)
@@ -44,8 +44,8 @@ void	ft_print_c(va_list *args, t_flags *flag)
 
 void	ft_print_per(va_list *args, t_flags *flag)
 {
-	int		amount;
-	
+	int	amount;
+
 	amount = flag->ast == 1 ? va_arg(*args, int) : flag->dash;
 	while (flag->dash == 0 && amount-- > 1)
 		ft_putchar(' ');

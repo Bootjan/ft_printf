@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bootjan <bootjan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bschaafs <bschaafs@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 11:22:17 by bootjan           #+#    #+#             */
-/*   Updated: 2023/07/19 18:04:01 by bootjan          ###   ########.fr       */
+/*   Updated: 2023/10/05 19:57:50 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	print_value(va_list *args, char type, t_flags *flag)
 	else if (type == '%')
 		ft_print_per(args, flag);
 	else
-		printf("<Bad type>");
+		ft_printf("<Bad type>");
 }
 
 int	is_type(char c)
@@ -51,7 +51,7 @@ int	is_type(char c)
 int	print_variable(va_list *args, char *format, t_flags **flags)
 {
 	int	skip;
-	
+
 	skip = 1;
 	while (*format && !is_type(*format))
 	{
@@ -109,7 +109,7 @@ void	ft_printf(char *format, ...)
 		else
 			ft_putchar(*format);
 		format++;
-	}	
+	}
 	va_end(args);
 	ft_list_clear(free_flags);
 }

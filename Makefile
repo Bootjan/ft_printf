@@ -6,7 +6,7 @@ INCLUDES = ./includes
 
 LIB = -L. -libft
 
-ARRC = ar rc
+ARRC = ar rcs
 
 RANLIB = ranlib
 
@@ -22,12 +22,12 @@ MAIN = main.c
 
 all: ${NAME}
 
-%.o: %.c
-	${CC} ${CFLAGS} -c -I ${INCLUDES} $< -o $@
+%.o: %.c 
+	${CC} ${CFLAGS} -c $<
 
 ${NAME}: ${OBJS}
-	${ARRC} ${NAME} ${OBJS} libft.a
-	${RANLIB} ${NAME}
+	cp libft.a ${NAME}
+	${ARRC} ${NAME} $^
 
 # test: all ${MAIN}
 # 	./a.out

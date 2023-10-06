@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_header.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bootjan <bootjan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bschaafs <bschaafs@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 11:21:11 by bootjan           #+#    #+#             */
-/*   Updated: 2023/10/05 12:27:24 by bootjan          ###   ########.fr       */
+/*   Updated: 2023/10/06 16:46:53 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include "libft.h"
 
 # define MAX_U 4294967296
 
@@ -49,5 +50,6 @@ int		ft_atoi(const char *str);
 void	ft_list_push_back(t_flags **begin_list, t_flags *flag);
 void	ft_list_clear(t_flags *begin_list);
 size_t	ft_strlen(const char *s);
+void	ft_printf(char *format, ...);
 
 #endif

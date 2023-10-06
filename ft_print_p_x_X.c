@@ -56,7 +56,7 @@ void	ft_print_p(va_list *args, t_flags *flag)
 	char	*out;
 	int		amount;
 	int		size;
-	
+
 	amount = flag->ast == 1 ? va_arg(*args, int) : flag->dash;
 	out = base_converter(va_arg(*args, int), "0123456789abcdef", 16);
 	if (!out)

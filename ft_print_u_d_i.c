@@ -14,7 +14,7 @@
 
 char	*ft_itod(long n)
 {
-	long		len;
+	long	len;
 	long	sign;
 	char	*out;
 
@@ -42,7 +42,7 @@ char	*ft_itod(long n)
 
 char	*ft_itou(long n)
 {
-	long		len;
+	long	len;
 	long	sign;
 	char	*out;
 
@@ -106,4 +106,3 @@ void	ft_print_i(va_list *args, t_flags *flag)
 	if (out)
 		free(out);
 }
-

@@ -29,7 +29,7 @@ void	ft_print_wflags(char *out, int amount, t_flags *flag)
 {
 	int	zero_space;
 	int	size;
-	
+
 	zero_space = 1;
 	size = (int)ft_strlen(out);
 	if (flag->zero > 0 || flag->dot > 0)
