@@ -1,45 +1,46 @@
-SRCS = ft_printf.c ft_print_u_d_i.c ft_print_p_x_X.c ft_print_per_s_c.c ft_flags.c ft_print_wflags.c
+SRCS = ft_printf.c ft_print_u_d_i.c ft_print_p_x_ux.c ft_print_per_s_c.c ft_flags.c ft_print_wflags.c ft_helper.c
 
-OBJS = ${SRCS:.c=.o}
+OBJS = ${SRCS:%.c=${OBJS_DIR}/%.o}
+OBJS_DIR = ./objs
 
 INCLUDES = ./includes
 
-LIB = -L. -libft
-
-ARRC = ar rcs
-
-RANLIB = ranlib
-
+ARRCS = ar rcs
 NAME = libftprintf.a
 
 REMOVE = rm -f
 
 CC = cc
-
 CFLAGS = -Wall -Wextra -Werror
+
+
+LIBFT_DIR = ./libft
+LIBFT = ${LIBFT_DIR}/libft.a
 
 MAIN = main.c
 
 all: ${NAME}
 
-%.o: %.c 
-	${CC} ${CFLAGS} -c $<
+${OBJS_DIR}/%.o:	%.c
+	${CC} ${CFLAGS} -c $< -o $@
 
-${NAME}: ${OBJS}
-	cp libft.a ${NAME}
-	${ARRC} ${NAME} $^
+${NAME}:		${LIBFT} ${OBJ_DIR} ${OBJS}
+	cp	${LIBFT} ${NAME}
+	${ARRCS} ${NAME} ${OBJS}
 
-# test: all ${MAIN}
-# 	./a.out
+${LIBFT}:
+	make -C ${LIBFT_DIR} all
 
-# ${MAIN}:
-# 	${CC} ${CFLAGS} main.c -lbsd -L. -lft
+${OBJ_DIR}:
+	mkdir -p ${OBJ_DIR}
 
 clean:
-	${REMOVE} ${OBJS}
+	make -C ${LIBFT_DIR} clean
+	${RM} ${OBJS}
 
-fclean: clean
-	${REMOVE} ${NAME}
+fclean:	clean
+	make -C ${LIBFT_DIR} fclean
+	${RM} ${NAME}
 
 re: fclean all
 

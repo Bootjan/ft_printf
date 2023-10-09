@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_u_d_i.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bootjan <bootjan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 14:18:06 by bootjan           #+#    #+#             */
-/*   Updated: 2023/07/19 15:21:18 by bootjan          ###   ########.fr       */
+/*   Updated: 2023/10/09 13:40:32 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,17 @@ char	*ft_itod(long n)
 
 	if (n > 2147483647 || n < -2147483647)
 		return (0);
-	sign = n;
-	len = 1;
-	while (sign /= 10)
-		len++;
-	sign = n >= 0 ? 0 : 1;
-	len = n < 0 ? len + 1 : len;
-	out = ft_strnew((size_t)(len + 1));
+	sign = 0;
+	len = 0;
+	compute_sign_length(&n, &sign, &len);
+	out = ft_calloc(len + 1, sizeof(char));
 	if (!out)
 		return (0);
 	if (sign)
 		out[0] = '-';
-	n = n < 0 ? -n : n;
 	while (len-- > sign)
 	{
-		out[len] = n <= 9 ? n + '0' : n % 10 + '0';
+		out[len] = n % 10 + '0';
 		n /= 10;
 	}
 	return (out);
@@ -48,21 +44,17 @@ char	*ft_itou(long n)
 
 	if (n == -2147483648)
 		return (out = ft_strdup("-2147483648"));
-	sign = n;
-	len = 1;
-	while (sign /= 10)
-		len++;
-	sign = n >= 0 ? 0 : 1;
-	len = n < 0 ? len + 1 : len;
-	out = ft_strnew((size_t)(len + 1));
+	sign = 0;
+	len = 0;
+	compute_sign_length(&n, &sign, &len);
+	out = ft_calloc(len + 1, sizeof(char));
 	if (!out)
 		return (0);
 	if (sign)
 		out[0] = '-';
-	n = n < 0 ? -n : n;
 	while (len-- > sign)
 	{
-		out[len] = n <= 9 ? n + '0' : n % 10 + '0';
+		out[len] = n % 10 + '0';
 		n /= 10;
 	}
 	return (out);
@@ -73,7 +65,9 @@ void	ft_print_d(va_list *args, t_flags *flag)
 	char	*out;
 	int		amount;
 
-	amount = flag->ast == 1 ? va_arg(*args, int) : 0;
+	amount = 0;
+	if (flag->ast)
+		amount = va_arg(*args, int);
 	out = ft_itod(va_arg(*args, int));
 	ft_print_wflags(out, amount, flag);
 	if (out)
@@ -86,9 +80,12 @@ void	ft_print_u(va_list *args, t_flags *flag)
 	char	*out;
 	int		amount;
 
-	amount = flag->ast == 1 ? va_arg(*args, int) : 0;
+	amount = 0;
+	if (flag->ast)
+		amount = va_arg(*args, int);
 	long_n = va_arg(*args, int);
-	long_n = long_n < 0 ? MAX_U + long_n : long_n;
+	if (long_n < 0)
+		long_n += MAX_U;
 	out = ft_itou(long_n);
 	ft_print_wflags(out, amount, flag);
 	if (out)
@@ -100,7 +97,9 @@ void	ft_print_i(va_list *args, t_flags *flag)
 	char	*out;
 	int		amount;
 
-	amount = flag->ast == 1 ? va_arg(*args, int) : 0;
+	amount = 0;
+	if (flag->ast)
+		amount = va_arg(*args, int);
 	out = ft_itoa(va_arg(*args, int));
 	ft_print_wflags(out, amount, flag);
 	if (out)

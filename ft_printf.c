@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bschaafs <bschaafs@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 11:22:17 by bootjan           #+#    #+#             */
-/*   Updated: 2023/10/05 19:57:50 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:36:12 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	print_value(va_list *args, char type, t_flags *flag)
 	else if (type == 'x')
 		ft_print_x(args, flag);
 	else if (type == 'X')
-		ft_print_X(args, flag);
+		ft_print_ux(args, flag);
 	else if (type == 'i')
 		ft_print_i(args, flag);
 	else if (type == 'd')
@@ -76,15 +76,15 @@ void	compute_flags(char *format, t_flags **flags)
 		{
 			flag = 0;
 			flag = ft_create_elem();
-			atoi = ft_atoi(format + i + 2);
+			atoi = ft_get_atoi(format, i);
 			if (format[i + 1] == '0')
-				flag->zero = atoi > 0 ? atoi : 1;
+				flag->zero = atoi;
 			if (format[i + 1] == '.')
-				flag->dot = atoi > 0 ? atoi : 1;
+				flag->dot = atoi;
 			if (format[i + 1] == '*' || format[i + 2] == '*')
 				flag->ast = 1;
 			if (format[i + 1] == '-')
-				flag->dash = atoi > 0 ? atoi : 1;
+				flag->dash = atoi;
 			ft_list_push_back(flags, flag);
 			i++;
 		}

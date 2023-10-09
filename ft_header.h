@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_header.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bschaafs <bschaafs@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 11:21:11 by bootjan           #+#    #+#             */
-/*   Updated: 2023/10/06 16:46:53 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:40:15 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ void	ft_putchar(char c);
 void	ft_putstr(const char *s);
 char	*ft_itoa(int n);
 char	*ft_strdup(const char *src);
-char	*ft_strnew(size_t len);
+void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_print_u(va_list *args, t_flags *flag);
 void	ft_print_d(va_list *args, t_flags *flag);
 void	ft_print_i(va_list *args, t_flags *flag);
 void	ft_print_p(va_list *args, t_flags *flag);
 void	ft_print_x(va_list *args, t_flags *flag);
-void	ft_print_X(va_list *args, t_flags *flag);
+void	ft_print_ux(va_list *args, t_flags *flag);
 void	ft_print_per(va_list *args, t_flags *flag);
 void	ft_print_s(va_list *args, t_flags *flag);
 void	ft_print_c(va_list *args, t_flags *flag);
@@ -51,5 +51,7 @@ void	ft_list_push_back(t_flags **begin_list, t_flags *flag);
 void	ft_list_clear(t_flags *begin_list);
 size_t	ft_strlen(const char *s);
 void	ft_printf(char *format, ...);
+int		ft_get_atoi(char *format, int i);
+void	compute_sign_length(long *n, long *sign, long *len);
 
 #endif
