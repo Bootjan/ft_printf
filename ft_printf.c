@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:53:43 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 13:23:45 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:31:40 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	print_type(va_list *args, char type)
 	return (0);
 }
 
-int	convert_format(va_list *args, char *format)
+int	convert_format(va_list *args, const char *format)
 {
 	int	i;
 	int	total_written;
@@ -59,7 +59,7 @@ int	convert_format(va_list *args, char *format)
 	return (total_written);
 }
 
-int	ft_printf(char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	int		out;
 	va_list	args;

@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:53:59 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 13:24:54 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:34:40 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdlib.h>
-# include <unistd.h>
 # include <stdarg.h>
-# include <string.h>
 
 int		ft_print_i_d(va_list *args);
 int		ft_print_u(va_list *args);
@@ -32,8 +30,7 @@ void	ft_putchar_fd(char c, int fd);
 char	*ft_itoa(int n);
 size_t	ft_strlen(const char *s);
 void	*ft_calloc(size_t nmemb, size_t size);
-int		ft_printf(char *format, ...);
-char	*ft_strdup(const char *s);
+int		ft_printf(const char *format, ...);
 
 # define LOWER_16_BASE "0123456789abcdef"
 # define UPPER_16_BASE "0123456789ABCDEF"

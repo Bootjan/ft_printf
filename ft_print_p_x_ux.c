@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:10:46 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 13:23:24 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:33:49 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_print_p(va_list *args)
 
 	args_n = 0;
 	args_n = va_arg(*args, int);
-	out = base_converter(args_n, LOWER_16_BASE, 16);
+	out = base_converter(args_n, LOWER_16_BASE, ft_strlen(LOWER_16_BASE));
 	if (!out)
 		return (0);
 	ft_putstr_fd("0x", 1);
@@ -41,7 +41,7 @@ int	ft_print_x(va_list *args)
 	args_n = va_arg(*args, int);
 	if (args_n < 0)
 		args_n += MAX_U;
-	out = base_converter(args_n, LOWER_16_BASE, 16);
+	out = base_converter(args_n, LOWER_16_BASE, ft_strlen(LOWER_16_BASE));
 	if (!out)
 		return (0);
 	ft_putstr_fd(out, 1);
@@ -61,7 +61,7 @@ int	ft_print_upper_x(va_list *args)
 	args_n = va_arg(*args, int);
 	if (args_n < 0)
 		args_n += MAX_U;
-	out = base_converter(args_n, UPPER_16_BASE, 16);
+	out = base_converter(args_n, UPPER_16_BASE, ft_strlen(UPPER_16_BASE));
 	if (!out)
 		return (0);
 	ft_putstr_fd(out, 1);
