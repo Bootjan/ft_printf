@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_helper.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bootjan <bootjan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 14:03:06 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 22:19:48 by bootjan          ###   ########.fr       */
+/*   Created: 2023/10/10 21:32:01 by bootjan           #+#    #+#             */
+/*   Updated: 2023/10/10 22:08:34 by bootjan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_putchar(char c)
 {
-	void	*result;
-	size_t	total_size;
+	int	out;
 
-	total_size = size * nmemb;
-	result = malloc(total_size);
-	if (!result)
-		return (NULL);
-	ft_bzero(result, nmemb);
-	return (result);
+	out = write(1, &c, 1);
+	if (out == -1)
+		return (-1);
+	return (1);
+}
+
+int	ft_putstr(const char *s)
+{
+	int	out;
+
+	if (!s)
+		return (0);
+	out = write(1, s, ft_strlen(s));
+	if (out == -1)
+		return (-1);
+	return (1);
+}
+
+void	free_function(void *ptr)
+{
+	if (ptr)
+		free(ptr);
 }

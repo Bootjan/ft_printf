@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_u_d_i.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bootjan <bootjan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:49:44 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 14:42:18 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 22:15:21 by bootjan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,14 @@ int	ft_print_u(va_list *args)
 		args_n += MAX_U;
 	out = ft_itou(args_n);
 	if (!out)
-		return (0);
-	ft_putstr_fd(out, 1);
+		return (-1);
+	if (ft_putstr(out) == -1)
+	{
+		free_function(out);
+		return (-1);
+	}
 	size = (int)ft_strlen(out);
-	if (out)
-		free(out);
+	free_function(out);
 	return (size);
 }
 
@@ -83,10 +86,13 @@ int	ft_print_i_d(va_list *args)
 	args_n = va_arg(*args, int);
 	out = ft_itoa(args_n);
 	if (!out)
-		return (0);
-	ft_putstr_fd(out, 1);
+		return (-1);
+	if (ft_putstr(out) == -1)
+	{
+		free_function(out);
+		return (-1);
+	}
 	size = (int)ft_strlen(out);
-	if (out)
-		free(out);
+	free_function(out);
 	return (size);
 }
