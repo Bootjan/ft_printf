@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:53:59 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 13:34:40 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:33:40 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_print_per(void);
 int		ft_print_p(va_list *args);
 int		ft_print_x(va_list *args);
 int		ft_print_upper_x(va_list *args);
-char	*base_converter(long n, char *base, int base_len);
+char	*base_converter(unsigned long n, char *base, int base_len);
 void	ft_putstr_fd(const char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 char	*ft_itoa(int n);
@@ -35,5 +35,6 @@ int		ft_printf(const char *format, ...);
 # define LOWER_16_BASE "0123456789abcdef"
 # define UPPER_16_BASE "0123456789ABCDEF"
 # define MAX_U 4294967296
+# define UL unsigned long
 
 #endif

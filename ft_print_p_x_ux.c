@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:10:46 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 13:33:49 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:33:58 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int	ft_print_p(va_list *args)
 {
 	char	*out;
-	long	args_n;
+	UL		args_n;
 	size_t	size;
 
 	args_n = 0;
-	args_n = va_arg(*args, int);
+	args_n = va_arg(*args, UL);
 	out = base_converter(args_n, LOWER_16_BASE, ft_strlen(LOWER_16_BASE));
 	if (!out)
 		return (0);
@@ -34,13 +34,11 @@ int	ft_print_p(va_list *args)
 int	ft_print_x(va_list *args)
 {
 	char	*out;
-	long	args_n;
+	UL		args_n;
 	size_t	size;
 
 	args_n = 0;
-	args_n = va_arg(*args, int);
-	if (args_n < 0)
-		args_n += MAX_U;
+	args_n = va_arg(*args, UL);
 	out = base_converter(args_n, LOWER_16_BASE, ft_strlen(LOWER_16_BASE));
 	if (!out)
 		return (0);
@@ -54,13 +52,11 @@ int	ft_print_x(va_list *args)
 int	ft_print_upper_x(va_list *args)
 {
 	char	*out;
-	long	args_n;
+	UL		args_n;
 	size_t	size;
 
 	args_n = 0;
-	args_n = va_arg(*args, int);
-	if (args_n < 0)
-		args_n += MAX_U;
+	args_n = va_arg(*args, UL);
 	out = base_converter(args_n, UPPER_16_BASE, ft_strlen(UPPER_16_BASE));
 	if (!out)
 		return (0);
