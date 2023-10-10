@@ -24,15 +24,15 @@ all: ${NAME}
 ${OBJS_DIR}/%.o:	%.c
 	${CC} ${CFLAGS} -c $< -o $@
 
-${NAME}:		${LIBFT} ${OBJ_DIR} ${OBJS}
+${NAME}:		${LIBFT} ${OBJS_DIR} ${OBJS}
 	cp	${LIBFT} ${NAME}
 	${ARRCS} ${NAME} ${OBJS}
 
 ${LIBFT}:
 	make -C ${LIBFT_DIR} all
 
-${OBJ_DIR}:
-	mkdir -p ${OBJ_DIR}
+${OBJS_DIR}:
+	mkdir -p ${OBJS_DIR}
 
 clean:
 	make -C ${LIBFT_DIR} clean
