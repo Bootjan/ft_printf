@@ -6,11 +6,11 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:18:18 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 12:35:24 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:23:27 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_header.h"
+#include "ft_printf.h"
 
 char	*trim_string(char *s, int size)
 {

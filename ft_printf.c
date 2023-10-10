@@ -6,11 +6,11 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:53:43 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 13:13:39 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:23:45 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_header.h"
+#include "ft_printf.h"
 
 int	print_type(va_list *args, char type)
 {

@@ -6,11 +6,11 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:49:44 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 13:08:56 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:23:39 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_header.h"
+#include "ft_printf.h"
 
 void	compute_sign_length(long *n, long *sign, long *len)
 {
