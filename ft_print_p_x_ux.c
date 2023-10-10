@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:10:46 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 14:42:36 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:43:38 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	ft_print_p(va_list *args)
 {
-	char	*out;
-	UL		args_n;
-	size_t	size;
+	char			*out;
+	unsigned long	args_n;
+	size_t			size;
 
 	args_n = 0;
-	args_n = va_arg(*args, UL);
+	args_n = va_arg(*args, unsigned long);
 	out = base_converter(args_n, LOWER_16_BASE, ft_strlen(LOWER_16_BASE));
 	if (!out)
 		return (0);
