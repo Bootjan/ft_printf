@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:53:59 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 14:43:22 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:46:02 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int		ft_print_per(void);
 int		ft_print_p(va_list *args);
 int		ft_print_x(va_list *args);
 int		ft_print_upper_x(va_list *args);
-char	*base_converter(unsigned long n, char *base, int base_len);
+char	*base_converter(long n, char *base, int base_len);
+char	*base_converter_ul(unsigned long n, char *base, int base_len);
 void	ft_putstr_fd(const char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 char	*ft_itoa(int n);
