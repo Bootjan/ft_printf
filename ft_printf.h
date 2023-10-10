@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:53:59 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 14:33:40 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:37:56 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int		ft_printf(const char *format, ...);
 
 # define LOWER_16_BASE "0123456789abcdef"
 # define UPPER_16_BASE "0123456789ABCDEF"
-# define MAX_U 4294967296
 # define UL unsigned long
 
 #endif

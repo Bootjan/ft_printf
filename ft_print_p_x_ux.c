@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:10:46 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 14:33:58 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:36:26 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ int	ft_print_p(va_list *args)
 int	ft_print_x(va_list *args)
 {
 	char	*out;
-	UL		args_n;
+	size_t	args_n;
 	size_t	size;
 
 	args_n = 0;
-	args_n = va_arg(*args, UL);
+	args_n = va_arg(*args, size_t);
 	out = base_converter(args_n, LOWER_16_BASE, ft_strlen(LOWER_16_BASE));
 	if (!out)
 		return (0);
@@ -52,11 +52,11 @@ int	ft_print_x(va_list *args)
 int	ft_print_upper_x(va_list *args)
 {
 	char	*out;
-	UL		args_n;
+	size_t	args_n;
 	size_t	size;
 
 	args_n = 0;
-	args_n = va_arg(*args, UL);
+	args_n = va_arg(*args, size_t);
 	out = base_converter(args_n, UPPER_16_BASE, ft_strlen(UPPER_16_BASE));
 	if (!out)
 		return (0);

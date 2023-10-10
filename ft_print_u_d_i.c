@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:49:44 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 13:23:39 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:39:17 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,7 @@ int	ft_print_u(va_list *args)
 	size_t	size;
 
 	args_n = 0;
-	args_n = va_arg(*args, int);
-	if (args_n < 0)
-		args_n += MAX_U;
-	out = 0;
+	args_n = va_arg(*args, size_t);
 	out = ft_itou(args_n);
 	if (!out)
 		return (0);
@@ -82,7 +79,6 @@ int	ft_print_i_d(va_list *args)
 
 	args_n = 0;
 	args_n = va_arg(*args, int);
-	out = 0;
 	out = ft_itoa(args_n);
 	if (!out)
 		return (0);
