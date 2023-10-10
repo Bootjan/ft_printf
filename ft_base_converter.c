@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:18:18 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 14:32:38 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:44:22 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*push_front(char *str, char c)
 	return (out);
 }
 
-char	*base_converter(UL n, char *base, int base_len)
+char	*base_converter(unsigned long n, char *base, int base_len)
 {
 	char	*out;
 
