@@ -5,111 +5,68 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 11:22:17 by bootjan           #+#    #+#             */
-/*   Updated: 2023/10/09 13:36:12 by bschaafs         ###   ########.fr       */
+/*   Created: 2023/10/09 14:53:43 by bschaafs          #+#    #+#             */
+/*   Updated: 2023/10/10 12:41:18 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_header.h"
-#include <stdio.h>
 
-void	print_value(va_list *args, char type, t_flags *flag)
+int	print_type(va_list *args, char type)
 {
 	if (type == 's')
-		ft_print_s(args, flag);
-	else if (type == 'c')
-		ft_print_c(args, flag);
-	else if (type == 'p')
-		ft_print_p(args, flag);
-	else if (type == 'x')
-		ft_print_x(args, flag);
-	else if (type == 'X')
-		ft_print_ux(args, flag);
-	else if (type == 'i')
-		ft_print_i(args, flag);
-	else if (type == 'd')
-		ft_print_d(args, flag);
-	else if (type == 'u')
-		ft_print_u(args, flag);
-	else if (type == '%')
-		ft_print_per(args, flag);
-	else
-		ft_printf("<Bad type>");
-}
-
-int	is_type(char c)
-{
-	int	i;
-
-	i = 0;
-	while ("scpxXidu%%"[i])
-		if (c == "scpxXidu%%"[i++])
-			return (1);
+		return (ft_print_s(args));
+	if (type == 'c')
+		return (ft_print_c(args));
+	if (type == 'p')
+		return (ft_print_p(args));
+	if (type == 'x')
+		return (ft_print_x(args));
+	if (type == 'X')
+		return (ft_print_upper_x(args));
+	if (type == 'i' || type == 'd')
+		return (ft_print_i_d(args));
+	if (type == 'u')
+		return (ft_print_u(args));
+	if (type == '%')
+		return (ft_print_per(args));
+	ft_printf("<Bad type>");
 	return (0);
 }
 
-int	print_variable(va_list *args, char *format, t_flags **flags)
+int	convert_format(va_list *args, char *format)
 {
-	int	skip;
+	int	i;
+	int	total_written;
 
-	skip = 1;
-	while (*format && !is_type(*format))
-	{
-		skip++;
-		format++;
-	}
-	print_value(args, *format, *flags);
-	(*flags) = (*flags)->next;
-	return (skip);
-}
-
-void	compute_flags(char *format, t_flags **flags)
-{
-	int		i;
-	t_flags	*flag;
-	int		atoi;
-
+	if (!format)
+		return (0);
 	i = 0;
+	total_written = 0;
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
-			flag = 0;
-			flag = ft_create_elem();
-			atoi = ft_get_atoi(format, i);
-			if (format[i + 1] == '0')
-				flag->zero = atoi;
-			if (format[i + 1] == '.')
-				flag->dot = atoi;
-			if (format[i + 1] == '*' || format[i + 2] == '*')
-				flag->ast = 1;
-			if (format[i + 1] == '-')
-				flag->dash = atoi;
-			ft_list_push_back(flags, flag);
-			i++;
+			total_written += print_type(args, format[i + 1]);
+			i += 2;
 		}
-		i++;
+		else
+		{
+			ft_putchar_fd(format[i++], 1);
+			total_written++;
+		}
 	}
+	return (total_written);
 }
 
-void	ft_printf(char *format, ...)
+int	ft_printf(char *format, ...)
 {
+	int		out;
 	va_list	args;
-	t_flags	*flags;
-	t_flags	*free_flags;
 
-	flags = 0;
-	compute_flags(format, &flags);
-	free_flags = flags;
+	out = 0;
 	va_start(args, format);
-	while (*format)
-	{
-		if (*format == '%')
-			format += print_variable(&args, format + 1, &flags);
-		else
-			ft_putchar(*format);
-		format++;
-	}
+	out = convert_format(&args, format);
 	va_end(args);
-	ft_list_clear(free_flags);
+	return (out);
 }

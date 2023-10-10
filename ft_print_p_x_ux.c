@@ -1,117 +1,72 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_p_x_X.c                                   :+:      :+:    :+:   */
+/*   ft_print_p_x_ux.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 11:26:17 by bootjan           #+#    #+#             */
-/*   Updated: 2023/10/09 13:35:30 by bschaafs         ###   ########.fr       */
+/*   Created: 2023/10/09 16:10:46 by bschaafs          #+#    #+#             */
+/*   Updated: 2023/10/10 13:10:25 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_header.h"
-#include <stdio.h>
 
-char	*trim_string(char *s, int size)
+int	ft_print_p(va_list *args)
 {
-	int		i;
 	char	*out;
+	long	args_n;
+	size_t	size;
 
-	out = ft_calloc(size + 1, sizeof(char));
+	args_n = 0;
+	args_n = va_arg(*args, int);
+	out = base_converter(args_n, LOWER_16_BASE, 16);
 	if (!out)
 		return (0);
-	i = 0;
-	while (i < size)
-	{
-		out[i] = s[8 - size + i];
-		i++;
-	}
-	out[i] = 0;
-	if (s)
-		free(s);
-	return (out);
+	ft_putstr_fd("0x", 1);
+	size = (int)ft_strlen(out) + 2;
+	ft_putstr_fd(out, 1);
+	if (out)
+		free(out);
+	return (size);
 }
 
-char	*base_converter(long n, char *base, int base_len)
+int	ft_print_x(va_list *args)
 {
 	char	*out;
-	int		i;
+	long	args_n;
+	size_t	size;
 
-	out = ft_calloc(9, sizeof(char));
+	args_n = 0;
+	args_n = va_arg(*args, int);
+	if (args_n < 0)
+		args_n += MAX_U;
+	out = base_converter(args_n, LOWER_16_BASE, 16);
 	if (!out)
 		return (0);
-	i = 0;
-	while (n > 0)
-	{
-		out[7 - i++] = base[n % base_len];
-		n /= base_len;
-	}
-	out = trim_string(out, i);
-	return (out);
-}
-
-void	ft_print_p(va_list *args, t_flags *flag)
-{
-	char	*out;
-	int		amount;
-	int		size;
-
-	amount = flag->dash;
-	if (flag->ast == 1)
-		amount = va_arg(*args, int);
-	out = base_converter(va_arg(*args, int), "0123456789abcdef", 16);
-	if (!out)
-		return ;
-	size = ft_strlen(out) + 3;
-	while (flag->dash == 0 && amount-- > size)
-		ft_putchar(' ');
-	ft_putstr("0x1");
-	ft_putstr(out);
-	while (flag->dash > 0 && amount-- > size)
-		ft_putchar(' ');
+	ft_putstr_fd(out, 1);
+	size = (int)ft_strlen(out);
 	if (out)
 		free(out);
+	return (size);
 }
 
-void	ft_print_x(va_list *args, t_flags *flag)
+int	ft_print_upper_x(va_list *args)
 {
-	long	conv_n;
 	char	*out;
-	int		amount;
+	long	args_n;
+	size_t	size;
 
-	amount = 0;
-	conv_n = 0;
-	if (flag->ast == 1)
-		amount = va_arg(*args, int);
-	conv_n = va_arg(*args, int);
-	if (conv_n < 0)
-		conv_n += MAX_U;
-	out = base_converter(conv_n, "0123456789abcdef", 16);
+	args_n = 0;
+	args_n = va_arg(*args, int);
+	if (args_n < 0)
+		args_n += MAX_U;
+	out = base_converter(args_n, UPPER_16_BASE, 16);
 	if (!out)
-		return ;
-	ft_print_wflags(out, amount, flag);
+		return (0);
+	ft_putstr_fd(out, 1);
+	size = (int)ft_strlen(out);
 	if (out)
 		free(out);
-}
-
-void	ft_print_ux(va_list *args, t_flags *flag)
-{
-	long	conv_n;
-	char	*out;
-	int		amount;
-
-	amount = 0;
-	conv_n = 0;
-	if (flag->ast == 1)
-		amount = va_arg(*args, int);
-	conv_n = va_arg(*args, int);
-	if (conv_n < 0)
-		conv_n += MAX_U;
-	out = base_converter(conv_n, "0123456789ABCDEF", 16);
-	if (!out)
-		return ;
-	ft_print_wflags(out, amount, flag);
-	if (out)
-		free(out);
+	return (size);
 }

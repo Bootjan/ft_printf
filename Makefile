@@ -1,4 +1,4 @@
-SRCS = ft_printf.c ft_print_u_d_i.c ft_print_p_x_ux.c ft_print_per_s_c.c ft_flags.c ft_print_wflags.c ft_helper.c
+SRCS = ft_printf.c ft_print_u_d_i.c ft_print_p_x_ux.c ft_print_per_s_c.c ft_base_converter.c
 
 OBJS = ${SRCS:%.c=${OBJS_DIR}/%.o}
 OBJS_DIR = ./objs
