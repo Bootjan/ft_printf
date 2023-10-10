@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:53:43 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 12:41:18 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:13:39 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	print_type(va_list *args, char type)
 	if (type == 'u')
 		return (ft_print_u(args));
 	if (type == '%')
-		return (ft_print_per(args));
+		return (ft_print_per());
 	ft_printf("<Bad type>");
 	return (0);
 }
