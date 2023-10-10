@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:53:59 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 14:46:02 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:49:47 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char	*ft_itoa(int n);
 size_t	ft_strlen(const char *s);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_printf(const char *format, ...);
+char	*ft_strdup(const char *s);
 
 # define LOWER_16_BASE "0123456789abcdef"
 # define UPPER_16_BASE "0123456789ABCDEF"
