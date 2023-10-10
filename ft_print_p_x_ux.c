@@ -6,12 +6,11 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:10:46 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 14:54:09 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:55:54 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	ft_print_p(va_list *args)
 {
@@ -42,7 +41,6 @@ int	ft_print_x(va_list *args)
 	args_n = va_arg(*args, int);
 	if (args_n < 0)
 		args_n += MAX_U;
-	printf("test: %lu\n", args_n);
 	out = base_converter(args_n, LOWER_16_BASE, ft_strlen(LOWER_16_BASE));
 	if (!out)
 		return (0);
