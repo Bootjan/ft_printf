@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bootjan <bootjan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:53:43 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 13:31:40 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 21:50:17 by bootjan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,24 @@ int	convert_format(va_list *args, const char *format)
 {
 	int	i;
 	int	total_written;
+	int	write_check;
 
-	if (!format)
-		return (0);
 	i = 0;
 	total_written = 0;
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
-			total_written += print_type(args, format[i + 1]);
+			write_check = print_type(args, format[i + 1]);
+			if (write_check == -1)
+				return (-1);
+			total_written += write_check;
 			i += 2;
 		}
 		else
 		{
-			ft_putchar_fd(format[i++], 1);
+			if (ft_putchar(format[i++]) == -1)
+				return (-1);
 			total_written++;
 		}
 	}
@@ -65,6 +68,8 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 
 	out = 0;
+	if (!format)
+		return (0);
 	va_start(args, format);
 	out = convert_format(&args, format);
 	va_end(args);

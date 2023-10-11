@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_per_s_c.c                                 :+:      :+:    :+:   */
+/*   ft_helper.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bootjan <bootjan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 15:43:05 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 21:38:54 by bootjan          ###   ########.fr       */
+/*   Created: 2023/10/10 21:32:01 by bootjan           #+#    #+#             */
+/*   Updated: 2023/10/10 22:08:34 by bootjan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_s(va_list *args)
+int	ft_putchar(char c)
 {
-	char	*str;
+	int	out;
 
-	str = va_arg(*args, char *);
-	if (!str)
-		str = "(null)";
-	if (ft_putstr(str) == -1)
-		return (-1);
-	return ((int)ft_strlen(str));
-}
-
-int	ft_print_c(va_list *args)
-{
-	char	c;
-
-	c = 0;
-	c = va_arg(*args, int);
-	if (ft_putchar(c) == -1)
+	out = write(1, &c, 1);
+	if (out == -1)
 		return (-1);
 	return (1);
 }
 
-int	ft_print_per(void)
+int	ft_putstr(const char *s)
 {
-	if (ft_putchar('%') == -1)
+	int	out;
+
+	if (!s)
+		return (0);
+	out = write(1, s, ft_strlen(s));
+	if (out == -1)
 		return (-1);
 	return (1);
+}
+
+void	free_function(void *ptr)
+{
+	if (ptr)
+		free(ptr);
 }
