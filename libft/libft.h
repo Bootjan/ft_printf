@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:48:15 by bootjan           #+#    #+#             */
-/*   Updated: 2023/10/05 11:34:55 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 15:21:21 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 
 void			ft_bzero(void *s, size_t n);

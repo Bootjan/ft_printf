@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 13:56:44 by bootjan           #+#    #+#             */
-/*   Updated: 2023/10/06 10:44:14 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 15:16:00 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmapi(char *s, char (*f)(unsigned int, char))
 	if (!s)
 		return (NULL);
 	size = ft_strlen(s) + 1;
-	out = (char *)malloc(size * sizeof(char));
+	out = (char *)ft_calloc(size, sizeof(char));
 	if (!out)
 		return (NULL);
 	i = 0;
@@ -30,6 +30,5 @@ char	*ft_strmapi(char *s, char (*f)(unsigned int, char))
 		out[i] = (*f)(i, s[i]);
 		i++;
 	}
-	out[i] = '\0';
 	return (out);
 }

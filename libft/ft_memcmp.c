@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bschaafs <bschaafs@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: bootjan <bootjan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 17:41:48 by bootjan           #+#    #+#             */
-/*   Updated: 2023/10/05 11:03:44 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/10 22:30:57 by bootjan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	str1 = s1;
 	str2 = s2;
 	i = 0;
-	while ((str1[i] || str2[i]) && n-- > 0)
+	while (n-- > 0)
 	{
 		if (str1[i] > str2[i])
 			return (1);
