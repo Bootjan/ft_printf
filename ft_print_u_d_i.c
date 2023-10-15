@@ -6,7 +6,7 @@
 /*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:49:44 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/15 18:52:39 by bschaafs         ###   ########.fr       */
+/*   Updated: 2023/10/15 18:54:08 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	ft_print_u(va_list *args)
 	if (!out)
 		return (-1);
 	if (ft_putstr(out) == -1)
-		return (free_funcion(out));
+		return (free_function(out));
 	size = (int)ft_strlen(out);
 	free_function(out);
 	return (size);
@@ -85,7 +85,7 @@ int	ft_print_i_d(va_list *args)
 	if (!out)
 		return (-1);
 	if (ft_putstr(out) == -1)
-		return (free_funcion(out));
+		return (free_function(out));
 	size = (int)ft_strlen(out);
 	free_function(out);
 	return (size);
