@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bootjan <bootjan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:53:59 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 22:08:51 by bootjan          ###   ########.fr       */
+/*   Updated: 2023/10/15 18:51:19 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_printf(const char *format, ...);
 char	*ft_strdup(const char *s);
 int		ft_putchar(char c);
 int		ft_putstr(const char *s);
-void	free_function(void *ptr);
+int		free_function(void *ptr);
 
 # define LOWER_16_BASE "0123456789abcdef"
 # define UPPER_16_BASE "0123456789ABCDEF"

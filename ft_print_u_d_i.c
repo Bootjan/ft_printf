@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_u_d_i.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bootjan <bootjan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bschaafs <bschaafs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:49:44 by bschaafs          #+#    #+#             */
-/*   Updated: 2023/10/10 22:15:21 by bootjan          ###   ########.fr       */
+/*   Updated: 2023/10/15 18:52:39 by bschaafs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,7 @@ int	ft_print_u(va_list *args)
 	if (!out)
 		return (-1);
 	if (ft_putstr(out) == -1)
-	{
-		free_function(out);
-		return (-1);
-	}
+		return (free_funcion(out));
 	size = (int)ft_strlen(out);
 	free_function(out);
 	return (size);
@@ -88,10 +85,7 @@ int	ft_print_i_d(va_list *args)
 	if (!out)
 		return (-1);
 	if (ft_putstr(out) == -1)
-	{
-		free_function(out);
-		return (-1);
-	}
+		return (free_funcion(out));
 	size = (int)ft_strlen(out);
 	free_function(out);
 	return (size);
